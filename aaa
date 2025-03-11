@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Main {
+    private static final String[] usNamear = new String[15];
+    private static final String[] passwar = new String[15];
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("""
+                    Оберіть дію :
+                    1. Зареєструвати нового користувача.
+                    2. Видалення користувача.
+                    3. Виконання дії від користувача.
+                    4. Вихід.
+                    """);
+            System.out.println("Сюди : ");
+            if (scanner.hasNextInt()) {
+                int num = scanner.nextInt();
+                scanner.nextLine();
+                if (num == 1) {
+                    registrUser();
+                } else if (num == 2) {
+
+                } else if (num == 3) {
+                    
+                } else if (num == 4) {
+                    System.out.println("Goodbye!(");
+                    break;
+                } else {
+                    System.out.println("Ви ввели щось невірно! Спробуйте ще раз.");
+                    scanner.next();
+                }
+            } else {
+                System.out.println("Ви ввели щось невірно! Спробуйте ще раз.");
+                scanner.next();
+            }
+        }
+    }
+    public static void registrUser(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введіть ім'я користувача : ");
+        String usName = scanner.nextLine();
+
+        System.out.println("Введіть пароль для користувача : ");
+        String passw = scanner.nextLine();
+
+        for(int i = 0; i < 15; i++){
+            if(usNamear[i] == null){
+                usNamear[i] = usName;
+                passwar[i] = passw;
+                System.out.println("Користувач " + usName + " зареєстрований");
+                return;
+            }
+        }
+    }
+}
